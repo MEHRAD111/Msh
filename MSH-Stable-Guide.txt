@@ -1,0 +1,83 @@
+Welcome to guide of msh stable 1 (Damavand)
+in this file,you learn to work with msh stable.
+===================================================
+Chapter 1:What is msh project?
+msh is an open-source and fully professional project made by mehrad kuhpaye;it's based on bash;have a lot of commands for work and two flavors:Stable and CRR(Crazy Rolling Release)
+(When you run a command,msh use bash to finish the work)
+===================================================
+Chapter 2:Start work with msh.
+If you want to work with msh,just you need to download the stable version of msh:go to https://github.com/MEHRAD111/Msh and switch to "Stable" branch,then,download the MSH-Stable.sh and save it in a folder.
+Open the terminal in your linux,then write this command 'cd /folderaddress' and 'bash MSH-Stable-version.sh'
+==================================================
+Chapter 3:Start Msh and Commands
+If msh started correctly,script print some text and then you can use the shell.
+Here,We have some commands in msh stable:
+(stable version get updates monthly but CRR version get updates daily.in updates,we add other commands and features.)
+\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+list, where, make-folder, remove, make-file ,go, print, clear, whoami, disk, lan, exit, help and ...
+==================================================
+Chapter 4:Use available commands.
+In this chapter,you learn a lot of things about msh commands:
+1.list:show the files and folders in the cli.(ls)
+
+2.where:show the address you are working on there.(pwd)
+
+3.make-folder:create a folder(mkdir)
+
+4.make-file:make a file with any format(touch)
+
+5.remove:remove any file with guard(rm -r)
+
+6.remove-full:it's like remove full but it is a command remove the file/folder without ask a question(it can unsfae!use this safely)(rm -rf)
+
+7.go:switch between folders easy and safe(cd)
+
+8.print:you can use this for print a text(echo)
+
+9.clear:clear the all texts in the cli(clear)
+
+10.whoami:show your username and the user of MPCos(whoami)
+
+11.disk:show the disks size and the filled volume(df -h)
+
+12.lan:show the interner cards and their ip(ip a)
+
+13.process:show the processes of system(ps)
+
+14.network-status:show the internet traffic(ss)
+
+15.shell:show your default shell
+
+16.python:open the python environment on cli,you can use it for coding(python3)
+
+17.pyhton-run:open the .py file and run it with python3
+
+18.git:you can use it with for work with git(limited)(git)\
+
+19.refresh-system:update your system and get new packages(it use your distro package manager)
+
+20.upgrade-system:upgrade your system and install the new packages(it use your linux distro package manager)
+
+21.access:you can use it for change the users permissions(limited)(chmod +x)
+
+22.bash-open:the bash open your .sh file and run it
+
+23.sh-open:old shell of linux (sh) open your .sh file and run it like bash-open
+
+24.msh-refresh:clone the repository of msh in github,then download the packages and then you can merge new msh.sh files to use the new features!(use git)
+
+==================================================
+Chapter 5:How do we know when new updates are available?
+
+1.Check the github everyday!
+Or
+2.Check GitHub for the stable version every month as the stable version updates every month!
+==================================================
+My github:https://github.com/MEHRAD111
+
+MSH Project:https://github.com/MEHRAD111/Msh
+
+VmWare Scripts:https://github.com/MEHRAD111/vmware-installer AND https://github.com/MEHRAD111/Auto-Remove-VmWare-Tools-Linux
+
+==================================================
+End Of MSH Guide.
