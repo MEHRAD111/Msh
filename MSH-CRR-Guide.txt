@@ -70,6 +70,8 @@ In this chapter,you learn a lot of things about msh commands:
 25.guide:show the guide
 
 26.information-full:show the full information of msh and MPCos
+
+27.mshcenter:show the mshcenter info.
 ==================================================
 Chapter 5:How do we know when new updates are available?
 
