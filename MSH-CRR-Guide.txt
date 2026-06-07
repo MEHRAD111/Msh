@@ -1,5 +1,5 @@
-Welcome to guide of MSH CRR (Crazy Rolling Release) 2026529 (Gazaneh)
-in this file,you learn to work with msh stable.
+Welcome to guide of MSH CRR (Crazy Rolling Release)(Gazaneh)
+in this file,you learn to work with msh CRR!
 ===================================================
 Chapter 1:What is msh project?
 msh is an open-source and fully professional project made by mehrad kuhpaye;it's based on bash;have a lot of commands for work and two flavors:Stable and CRR(Crazy Rolling Release)
@@ -72,10 +72,14 @@ In this chapter,you learn a lot of things about msh commands:
 26.information-full:show the full information of msh and MPCos
 
 27.mshcenter:show the mshcenter info.
+
+28.code:open vscode(code)
+
+29.codium:open vscoduim(codium)
 ==================================================
 Chapter 5:How do we know when new updates are available?
 
-1.Check the github everyday!
+1.Use msh-refresh!
 Or
 2.Check GitHub for the CRR version every day as the CRR version updates every day!
 ==================================================
