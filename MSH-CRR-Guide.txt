@@ -1,5 +1,5 @@
-Welcome to guide of MSH CRR (Crazy Rolling Release) 2026529 (Gazaneh)
-in this file,you learn to work with msh stable.
+Welcome to guide of MSH CRR (Crazy Rolling Release)(Gazaneh)
+in this file,you learn to work with msh CRR.
 ===================================================
 Chapter 1:What is msh project?
 msh is an open-source and fully professional project made by mehrad kuhpaye;it's based on bash;have a lot of commands for work and two flavors:Stable and CRR(Crazy Rolling Release)
@@ -71,9 +71,11 @@ In this chapter,you learn a lot of things about msh commands:
 
 26.information-full:show the full information of msh and MPCos
 
-27.mpkg:download apps and plugins for msh
+27.mpkg:Show information about mpkg
 
 28.mshbackuper:A built-in tools for backup your files(A fork from BackuperX)
+
+29.mpkg-get:Download plugins for msh.
 ==================================================
 Chapter 5:How do we know when new updates are available?
 
