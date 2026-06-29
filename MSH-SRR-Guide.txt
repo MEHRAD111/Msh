@@ -6,7 +6,7 @@ msh is an open-source and fully professional project made by mehrad kuhpaye;it's
 (When you run a command,msh use bash to finish the work)
 ===================================================
 Chapter 2:Start work with msh.
-If you want to work with msh,just you need to download the stable version of msh:go to https://github.com/MEHRAD111/Msh and switch to "Rolling-Release" branch,then,download the MSH-CRR.sh and save it in a folder.
+If you want to work with msh,just you need to download the stable version of msh:go to https://github.com/MEHRAD111/Msh and switch to "Rolling-Release" branch,then,download the MSH-SRR.sh and save it in a folder.
 Open the terminal in your linux,then write this command 'cd /folderaddress' and 'bash MSH-Stable-version.sh'
 ==================================================
 Chapter 3:Start Msh and Commands
