@@ -2,7 +2,7 @@ Welcome to guide of MSH SRR  (Slower Rolling Release)(Gazaneh)
 in this file,you learn to work with msh SRR.
 ===================================================
 Chapter 1:What is msh project?
-msh is an open-source and fully professional project made by mehrad kuhpaye;it's based on bash;have a lot of commands for work and two flavors:Stable and CRR(Crazy Rolling Release)
+msh is an open-source and fully professional project made by mehrad kuhpaye;it's based on bash;have a lot of commands for work and two flavors:Stable and SRR(Slower Rolling Release)
 (When you run a command,msh use bash to finish the work)
 ===================================================
 Chapter 2:Start work with msh.
