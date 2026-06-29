@@ -1,10 +1,11 @@
 # Rolling-Release branch of MSH
+##MSH SRR(Formerly MSH CRR)
 
 # MSH Project☄️
 
-# 🏅ّMSH is Fully Free,Open-source and professional
+# 🏅MSH is Fully Free,Open-source and professional
 
-# 🏅ّBest for those who love linux and other
+# 🏅Best for those who love linux and other
 
 # 🏅Has two flavors:Stable and CRR(Crazy Rolling Release)
 
