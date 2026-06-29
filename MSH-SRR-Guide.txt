@@ -12,7 +12,7 @@ Open the terminal in your linux,then write this command 'cd /folderaddress' and 
 Chapter 3:Start Msh and Commands
 If msh started correctly,script print some text and then you can use the shell.
 Here,We have some commands in msh stable:
-(stable version get updates monthly but CRR version get updates daily.in updates,we add other commands and features.)
+(stable version get updates monthly but SRR version get updates weekly.in updates,we add other commands and features.)
 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 list, where, make-folder, remove, make-file ,go, print, clear, whoami, disk, lan, exit, help and ...
 ==================================================
@@ -81,7 +81,7 @@ Chapter 5:How do we know when new updates are available?
 
 1.Check the github everyday!
 Or
-2.Check GitHub for the CRR version every day as the CRR version updates every day!
+2.Check GitHub for the SRR version every week as the SRR version updates every week!
 ==================================================
 My github:https://github.com/MEHRAD111
 
