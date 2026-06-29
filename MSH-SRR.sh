@@ -43,11 +43,11 @@ sleep 6
 
 echo "Msh is ready to use!"
 echo "
-oooo     oooo  oooooooo8 ooooo ooooo        oooooooo8 oooooooooo  oooooooooo
- 8888o   888  888         888   888       o888     88  888    888  888    888
- 88 888o8 88   888oooooo  888ooo888       888          888oooo88   888oooo88
- 88  888  88          888 888   888       888o     oo  888  88o    888  88o
-o88o  8  o88o o88oooo888 o888o o888o       888oooo88  o888o  88o8 o888o  88o8
+oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
+ 8888o   888  888         888   888       888         888    888  888    888
+ 88 888o8 88   888oooooo  888ooo888        888oooooo  888oooo88   888oooo88 
+ 88  888  88          888 888   888               888 888  88o    888  88o  
+o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
 "
 
 # =========================
@@ -218,14 +218,14 @@ while true; do
             ;;
 
         information-full)
-            echo "MPCos with Msh CRR xxxx/xx/xx"
+            echo "MPCos with Msh SRR "
             echo "Github branch rolling-release"
             echo "MshCenter v3"
             echo "Release URL: github.com/MEHRAD111"
             ;;
 
         version)
-            echo "MPCos MSH CRR xxxx/xx/xx"
+            echo "MPCos MSH SRR"
             ;;
 
         mshcenter)
