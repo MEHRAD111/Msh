@@ -1,16 +1,39 @@
-# MSH Project☄️
-
-# 🏅ّMSH is Fully Free,Open-source and professional
-
-# 🏅ّBest for those who love linux and other
-
-# 🏅Has two flavors:Stable and CRR(Crazy Rolling Release)
-
-# 🏅Have guide:its easy to install and use
-
-## Just Download it,then use it
-
-### An open-source project for ~~professional~~ users on linux.
-
-Msh is a project made by mehrad kuhpayeh.its based on bash.this is a os-like/shell-like project.it has a lot of commands and features.
-
+# Msh Project
+## Manual | Guide
+### About:Msh(Mehrad SHell) Is A Bash-Based Shell For Developers And Professional Users.MSH, Have 2 Flavors: SRR(Slow Rolling) And
+Stable Release!
+***
+# 1.Start With Download MSH
+First,Download the MSH ***.sh*** file.Just use this command:
+```Bash
+sudo your-distro-package-manager install git #If git is not installed
+git clone https://github.com/MEHRAD111/Msh.git
+```
+>>If you want to use MSH SRR, Run `git checkout Rolling-Release`
+>>And for MSH Stable, `git checkout Stable`
+***
+# 2.Run Msh For First Time
+When you clone Msh and choose a floavors,You need to run it:
+```Bash
+bash MSH-SRR.sh
+```
+OR
+```Bash
+bash MSH-Stable-V.sh
+```
+Then, you will see MSH print some texts(like services),But it is not real services like linux,There are some text!
+After the printed texts,you will see the ASCII of MSH,And the command prompt.
+***
+# 3.Use Commands in MSH
+For use MSH commands,Go to the directory contains the MSH.sh file and the guide.
+Just open the guide and use it!
+***
+# 4.Importmant Technologies Of MSH
+We have some importmant technologies in MSH, Like:
+## MPKG:To Download Plugins And Install Them
+## MshBackuper:A Plugin For Backup Your Importmant Data(A Fork Of BackuperX)
+## MshCenter:For Download and install Updates(Preview)
+***
+### End Of Guide
+####License:MIT
+#####JUST DOWNLOAD IT,THEN USE IT!
