@@ -1,39 +1,60 @@
-# Msh Project
-## Manual | Guide
-### About:Msh(Mehrad SHell) Is A Bash-Based Shell For Developers And Professional Users.MSH, Have 2 Flavors: SRR(Slow Rolling) And
-Stable Release!
-***
-# 1.Start With Download MSH
-First,Download the MSH ***.sh*** file.Just use this command:
+# MshInstaller
+## PREVIEW
+### Full Manual | COURSE TO LEARN
+#### 1.Clone And Run It:
+For First Time,Just Clone The Msh And Switch To installer:
 ```Bash
-sudo your-distro-package-manager install git #If git is not installed
+#GIT is ready
 git clone https://github.com/MEHRAD111/Msh.git
+#Switch To Installer
+git switch Installer
+#Open The Folder
+cd MshInstall
+#Open The.sh
+sudo bash install.sh
 ```
->>If you want to use MSH SRR, Run `git checkout Rolling-Release`
->>And for MSH Stable, `git checkout Stable`
+#### 2.Use The Options
+When you run it,you can choose 6 options:
+1.For Open The TUI Installer **(Preview)**
+2.Start **MSH** Stable
+3.Open A **ICF** File To Put Installation Options **(Only Advanced Users)**
+4.Reboot
+5.ShutDown
+6.Edit BootCommands **(Preview)**
+#### 3.Work With ICF Files:
+In These Files,We can put some options for install MSH.Look at this Codes:
+{
+"@username":"$Mehrad";
+"@hostname":"$dhpcc5";
+"@desktop":"$kde-plasma";
+"@pkg":"$default";
+"@other-pkgs":$[sl, git];
+"@shell":"$zsh";
+"@target":$[dev, graphical];
+"@boot":"$refind";
+(disks[
+%installon : !/dev/sdX;
+%efion : ?(1Gib)?(ffs);
+%swapon : ?(16Gib)?(ffs);
+%kernel : !/default;
+%initd : !/default
+])
+
+}
 ***
-# 2.Run Msh For First Time
-When you clone Msh and choose a floavors,You need to run it:
-```Bash
-bash MSH-SRR.sh
-```
-OR
-```Bash
-bash MSH-Stable-V.sh
-```
-Then, you will see MSH print some texts(like services),But it is not real services like linux,There are some text!
-After the printed texts,you will see the ASCII of MSH,And the command prompt.
+#### 4.Work With BootCoomands
+When You Choose 4,Nano Will Open For You,Here Is A Simple Code For BootCommands(BCM):
+{
+kernel = !/dev/sdX/kernel/kernel-8.kre
+initd = !/dev/sdX/initd/init.d4o.os
+plymouth = no
+services = all>libvirtd
+rescue = no
+emergency = never
+sleep = 0
+}
 ***
-# 3.Use Commands in MSH
-For use MSH commands,Go to the directory contains the MSH.sh file and the guide.
-Just open the guide and use it!
-***
-# 4.Importmant Technologies Of MSH
-We have some importmant technologies in MSH, Like:
-## MPKG:To Download Plugins And Install Them
-## MshBackuper:A Plugin For Backup Your Importmant Data(A Fork Of BackuperX)
-## MshCenter:For Download and install Updates(Preview)
-***
-### End Of Guide
-#### License:MIT
-##### JUST DOWNLOAD IT,THEN USE IT!
+### MSHINSTALLER
+#### MIT
+
+
