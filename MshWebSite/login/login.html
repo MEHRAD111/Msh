@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login to Msh Release Panel (demo)">
+  <title>Msh Login</title>
+  <link rel="stylesheet" href="styleforlogin.css">
+</head>
+<body>
+  <main>
+    <form class="login-form" id="login-form" novalidate>
+      <img src="../img/login-svgrepo-com.svg" alt="Login icon" width="75">
+      <h1>Login</h1>
+      
+      <label for="usrname">Username:</label>
+      <input id="usrname" name="username" type="text" autocomplete="username" required>
+
+      <label for="passwd">Password:</label>
+      <input id="passwd" name="password" type="password" autocomplete="current-password" required>
+
+      <label for="domain">Domain:</label>
+      <select id="domain" name="domain">
+        <option value="msh.ir">Msh.ir</option>
+        <option value="gitmsh.com">gitmsh.com</option>
+        <option value="msh.com">msh.com</option>
+        <option value="msh.eu">msh.eu</option>
+        <option value="msh.io">msh.io</option>
+        <option value="admin.pl">admin.pl</option>
+      </select>
+
+      <button type="submit" id="btn">Login</button>
+      <p id="message" class="message" role="alert" aria-live="polite"></p>
+    </form>
+  </main>
+  <script src="scriptforlogin.js"></script>
+</body>
+</html>
