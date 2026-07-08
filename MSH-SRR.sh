@@ -1,47 +1,10 @@
 #!/bin/bash
 
-# =========================
-# MPCos Msh - Rebuilt Shell
-# =========================
-
 MSH_REPO_URL="https://github.com/MEHRAD111/Msh.git"
 MSH_PKG_INDEX="https://raw.githubusercontent.com/MEHRAD111/MshRepo/main/index.json"
 
-# =========================
-# Boot Sequence
-# =========================
-
 clear
-
-echo "Booting MPCos Desktop CRR (Gazaneh)..."
-sleep 2
-echo "Initializing kernel..."
-sleep 2
-echo "Starting services..."
-sleep 1
-
-services=(
-    "MSH Center"
-    "OSD for gpu"
-    "Firewall"
-    "Security Module of MSH"
-    "MSH-CLI"
-    "Mount /Msh"
-    "Read MSH.sh"
-    "Msh"
-    "RootUsers"
-    ""
-)
-
-for s in "${services[@]}"; do
-    echo "start $s"
-    sleep 1.5
-done
-
-echo "System ready."
-sleep 6
-
-echo "Msh is ready to use!"
+echo "Welcome To MSH SRR (Gazaneh)"
 echo "
 oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
  8888o   888  888         888   888       888         888    888  888    888
@@ -53,9 +16,25 @@ o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
 # =========================
 # Main Shell Loop
 # =========================
-
+GREEN='\033[38;5;120m'
+BLUE='\033[38;5;117m'
+YELLOW='\033[38;5;221m'
+PINK='\033[38;5;211m'
+GRAY='\033[38;5;246m'
+DARK='\033[38;5;238m'
+RESET='\033[0m'
+BOLD='\033[1m'
+DIM='\033[2m'
+USER_NAME=$(whoami)
+HOST_NAME=$(hostname)
+CURRENT_DIR=$(pwd)
+HOME_DIR="$HOME"
+SHORT_DIR=$(echo "$CURRENT_DIR" | sed "s|$HOME_DIR|~|")
+PS3="$(echo -e "
+${DIM}${DARK}╭─${RESET}${BOLD}${GREEN}${USER_NAME}${RESET}${DIM}${GRAY}@${RESET}${BOLD}${BLUE}${HOST_NAME}${RESET}${DIM}${GRAY} │ ${RESET}${BOLD}${YELLOW}${SHORT_DIR}${RESET}
+${DIM}${DARK}╰─${RESET}${BOLD}${PINK}❯${RESET} ")"
 while true; do
-    read -rp "(RootUser|Msh)> " command args
+    read -rp "$PS3" command args
 
     case "$command" in
 
@@ -66,19 +45,7 @@ while true; do
             ;;
 
         help)
-            echo "File & navigation:"
-            echo "  list, where, go, make-folder, make-file, remove, remove-full"
-            echo "System:"
-            echo "  whoami, disk, lan, process, network-status, shell, clear"
-            echo "  refresh-system, upgrade-system, access"
-            echo "Development:"
-            echo "  python, python-run, git, bash-open, sh-open, code, codium"
-            echo "Msh tools:"
-            echo "  msh-refresh, guide, mshcenter, mshbackuper, mpkg, mpkg-get"
-            echo "  information-full, version"
-            echo "Other:"
-            echo "  print, exit, help"
-            echo "Or download the full guide from GitHub."
+            echo "Download the full guide from GitHub."
             ;;
 
         clear)
@@ -158,7 +125,17 @@ while true; do
             sudo zypper update -y 2>/dev/null
             sudo pacman -Syu --noconfirm 2>/dev/null
             ;;
-
+            run)
+            read -rp "Write>>" write
+            $write
+            ;;
+             install)
+             read -rp ">>" installing
+             sudo apt install $installing 2>/dev/null
+             sudo dnf install $installing 2>/dev/null
+             sudo pacman -S $installing 2>/dev/null
+             sudo zypper in $installing 2>/dev/null
+             ;;     
         access)
             chmod +x "$args"
             ;;
@@ -218,7 +195,7 @@ while true; do
             ;;
 
         information-full)
-            echo "MPCos with Msh SRR "
+            echo "Msh SRR "
             echo "Github branch rolling-release"
             echo "MshCenter v3"
             echo "Release URL: github.com/MEHRAD111"
@@ -251,30 +228,41 @@ while true; do
 ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝
             '
             echo "MPKG (Msh Plugin/Package Manager)"
-            echo "Usage: mpkg-get <package-name>"
+            echo "Usage: mpkg-get"
             echo "mpkg-show"
             ;;
 
         mpkg-get)
-            read -rp "Package name: " PKG
+    read -rp "Package name: " PKG
 
-            INDEX=$(curl -s "$MSH_PKG_INDEX")
-            URL=$(echo "$INDEX" | grep -A3 "\"$PKG\"" | grep "url" | cut -d '"' -f4)
+    INDEX=$(curl -s "$MSH_PKG_INDEX")
+    URL=$(echo "$INDEX" | grep -A3 "\"$PKG\"" | grep "url" | cut -d '"' -f4)
 
-            if [[ -z "$URL" ]]; then
-                echo "Package not found: $PKG"
-            else
-                read -rp "Please give me a path to save the file: " pkgpath
-                curl -s "$URL" -o "$pkgpath/${PKG}.sh"
-                echo "Installed: $PKG"
-            fi
-            ;;
+    if [[ -z "$URL" ]]; then
+        echo -e "\033[1;31m✗ Package not found: $PKG\033[0m"
+    else
+        curl -s "$URL" -o "./${PKG}.sh"
+        chmod +x "./${PKG}.sh"
+        echo -e "\033[1;32m✓ Installed: $PKG in $(pwd)\033[0m"
+    fi
+    ;;
             mpkg-show)
             echo "Download And Show The Available Plugin.."
             echo ""
             wget "https://github.com/MEHRAD111/MshRepo/raw/refs/heads/main/available.plugin"
             cat available.plugin
             sudo rm available.plugin
+            ;;
+            mpkg-disable)
+            read -rp "Which Plugin Do You Want to Disable :>" plugind
+            sudo mv $plugind.sh .$plugind.sh
+            ;;
+            mpkg-enable)
+            read -rp "Which Plugin Do You Want To Enable :>" plugine
+            sudo mv .$plugine.sh $plugine.sh
+            ;;
+            mpkg-list)
+            ls *.sh
             ;;
 
         *)

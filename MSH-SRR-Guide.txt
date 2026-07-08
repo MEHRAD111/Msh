@@ -73,9 +73,15 @@ In this chapter,you learn a lot of things about msh commands:
 
 27.mpkg:Show information about mpkg
 
-28.mshbackuper:A built-in tools for backup your files(A fork from BackuperX)
+28.mpkg-list:Show you about installed plugins.
 
 29.mpkg-get:Download plugins for msh.
+
+30.mpkg-show:Show the plugins you can download from github!
+
+31.mpkg-disable:Use this to disable a plugin.
+
+32.mpkg-enable:Use this to enable a plugin.
 ==================================================
 Chapter 5:How do we know when new updates are available?
 
