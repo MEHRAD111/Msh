@@ -23,6 +23,7 @@ When you run it,you can choose 6 options:
 6.Edit BootCommands **(Preview)**
 #### 3.Work With ICF Files:
 In These Files,We can put some options for install MSH.Look at this Codes:
+```icf
 {
 "@username":"$Mehrad";
 "@hostname":"$dhpcc5";
@@ -39,11 +40,12 @@ In These Files,We can put some options for install MSH.Look at this Codes:
 %kernel : !/default;
 %initd : !/default
 ])
-
 }
+```
 ***
 #### 4.Work With BootCoomands
 When You Choose 4,Nano Will Open For You,Here Is A Simple Code For BootCommands(BCM):
+```bcm
 {
 kernel = !/dev/sdX/kernel/kernel-8.kre
 initd = !/dev/sdX/initd/init.d4o.os
@@ -53,6 +55,7 @@ rescue = no
 emergency = never
 sleep = 0
 }
+```
 ***
 ### MSHINSTALLER
 #### MIT
