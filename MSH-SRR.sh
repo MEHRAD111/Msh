@@ -126,11 +126,11 @@ while true; do
             sudo pacman -Syu --noconfirm 2>/dev/null
             ;;
             run)
-            read -rp "Write>>" write
+            read -rp "=>" write
             $write
             ;;
              install)
-             read -rp ">>" installing
+             read -rp "=>" installing
              sudo apt install $installing 2>/dev/null
              sudo dnf install $installing 2>/dev/null
              sudo pacman -S $installing 2>/dev/null
@@ -167,6 +167,9 @@ while true; do
 
         codium)
             codium
+            ;;
+            docker)
+            docker
             ;;
 
         # --- Msh tools ---
@@ -228,8 +231,8 @@ while true; do
 ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝
             '
             echo "MPKG (Msh Plugin/Package Manager)"
-            echo "Usage: mpkg-get"
-            echo "mpkg-show"
+            echo "Usage: mpkg-get, mpkg-show, mpkg-list, mpkg-enable, mpkg-disable, mpkg-run"
+            
             ;;
 
         mpkg-get)
@@ -255,15 +258,41 @@ while true; do
             ;;
             mpkg-disable)
             read -rp "Which Plugin Do You Want to Disable :>" plugind
-            sudo mv $plugind.sh .$plugind.sh
+            if [[ -f "$plugind.sh" ]]; then
+            mv "$plugind.sh" ".$plugind.sh"
+             else
+             echo "$plugind plugin not found."
+             fi
+            
             ;;
             mpkg-enable)
             read -rp "Which Plugin Do You Want To Enable :>" plugine
-            sudo mv .$plugine.sh $plugine.sh
+            if [[ -f ".$plugine.sh" ]]; then
+            mv ".$plugine.sh" "$plugine.sh"
+             else
+             echo "$plugine.sh not found."
+             fi
             ;;
             mpkg-list)
             ls *.sh
             ;;
+            mpkg-run)
+            read -rp "Which Plugin Do You Want To Run:>" pluginr
+            if [[ -f "$pluginr.sh" ]]; then
+            bash "$pluginr.sh"
+            else
+            echo "$pluginr.sh not found"
+            fi
+            ;;
+            mshfetch)
+             echo "
+oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
+ 8888o   888  888         888   888       888         888    888  888    888
+ 88 888o8 88   888oooooo  888ooo888        888oooooo  888oooo88   888oooo88 
+ 88  888  88          888 888   888               888 888  88o    888  88o  
+o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
+"
+hostnamectl                                                                                                                                        ;;
 
         *)
             echo "Command not found: $command"
