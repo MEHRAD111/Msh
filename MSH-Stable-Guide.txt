@@ -1,8 +1,8 @@
-Welcome to guide of MSH Stable V2(Damavand)
+Welcome to guide of MSH Stable V3(Damavand)
 in this file,you learn to work with msh stable.
 ===================================================
 Chapter 1:What is msh project?
-msh is an open-source and fully professional project made by mehrad kuhpaye;it's based on bash;have a lot of commands for work and two flavors:Stable and CRR(Crazy Rolling Release)
+msh is an open-source and fully professional project made by mehrad kuhpaye;it's based on bash;have a lot of commands for work and two flavors:Stable and SRR(Solwer Rolling Release)
 (When you run a command,msh use bash to finish the work)
 ===================================================
 Chapter 2:Start work with msh.
@@ -53,7 +53,7 @@ In this chapter,you learn a lot of things about msh commands:
 
 17.pyhton-run:open the .py file and run it with python3
 
-18.git:you can use it with for work with git(limited)(git)\
+18.git:you can use it with for work with git(git)
 
 19.refresh-system:update your system and get new packages(it use your distro package manager)
 
@@ -71,11 +71,22 @@ In this chapter,you learn a lot of things about msh commands:
 
 26.information-full:show the full information of msh and MPCos
 
-27.mpkg:show information about mpkg and usaage
+27.mpkg:show information about mpkg and usage
 
-28.mshbackuper:A built-in tools for backup your files(A fork from BackuperX)
+28.mpkg-get:download the plugins
 
-29.mpkg-get:download the plugins.
+29.mpkg-run:To run a plugin
+
+30.mpkg-enable:To enable a plugin
+
+31.mpkg-disable:To disable a plugin
+
+32.mpk-show:Download and show the available plugins
+
+33.mpkg-list:Show installed plugins
+
+34.install:Use for install a package on your pc
+
 ==================================================
 Chapter 5:How do we know when new updates are available?
 
