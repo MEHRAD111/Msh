@@ -16,6 +16,7 @@ o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
 # =========================
 # Main Shell Loop
 # =========================
+build='5'
 GREEN='\033[38;5;120m'
 BLUE='\033[38;5;117m'
 YELLOW='\033[38;5;221m'
@@ -125,10 +126,13 @@ while true; do
             sudo zypper update -y 2>/dev/null
             sudo pacman -Syu --noconfirm 2>/dev/null
             ;;
+<<<<<<< HEAD
             run)
             read -rp "=>" write
             $write
             ;;
+=======
+>>>>>>> 7e3f6c5 (Updated The MshCenter)
              install)
              read -rp "=>" installing
              sudo apt install $installing 2>/dev/null
@@ -178,13 +182,18 @@ while true; do
             if [[ "$answer" == "yes" ]]; then
                 sudo rm -rf Msh
                 sudo git clone "$MSH_REPO_URL"
-            else
+                cd Msh
+                sudo git switch Rolling-Release
+                echo "Your MSH SRR Build : $build"
+                echo "The File Build : " cat MSH-SRR.sh | grep build
+               else
                 sudo git clone "$MSH_REPO_URL"
-            fi
-            if [[ -d Msh ]]; then
-                (cd Msh && sudo git checkout Rolling-Release)
-                pwd
-                ls
+                cd Msh
+                sudo git switch Rolling-Release
+                echo "Your MSH SRR Build : $build"
+                echo "_+_+_+_+_+_+_+_+_+_"
+                echo "The File Build : " cat MSH-SRR.sh | grep build
+                
             fi
             ;;
 
@@ -215,7 +224,7 @@ while true; do
 ██╔████╔██║███████╗███████║    ██║     █████╗  ██╔██╗ ██║   ██║   █████╗  ██████╔╝
 ██║╚██╔╝██║╚════██║██╔══██║    ██║     ██╔══╝  ██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
 ██║ ╚═╝ ██║███████║██║  ██║    ╚██████╗███████╗██║ ╚████║   ██║   ███████╗██║  ██║
-╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V3
+╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V3.5
             "
             echo "MSh Center is the Msh updater. It works with git to download updates."
             echo "Command: msh-refresh"
