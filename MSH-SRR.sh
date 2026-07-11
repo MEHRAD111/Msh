@@ -127,10 +127,8 @@ while true; do
             sudo pacman -Syu --noconfirm 2>/dev/null
             ;;
 <<<<<<< HEAD
-            run)
-            read -rp "=>" write
-            $write
-            ;;
+           
+            
 =======
 >>>>>>> 7e3f6c5 (Updated The MshCenter)
              install)
