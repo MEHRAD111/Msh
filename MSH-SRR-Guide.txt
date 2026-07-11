@@ -82,6 +82,8 @@ In this chapter,you learn a lot of things about msh commands:
 31.mpkg-disable:Use this to disable a plugin.
 
 32.mpkg-enable:Use this to enable a plugin.
+
+33.mpkg-run:Use For Run A plugin.
 ==================================================
 Chapter 5:How do we know when new updates are available?
 
