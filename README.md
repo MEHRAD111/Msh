@@ -19,10 +19,9 @@ bash MSH-SRR.sh
 ```
 OR
 ```Bash
-bash MSH-Stable-V.sh
+bash MSH-Stable-V3.sh
 ```
-Then, you will see MSH print some texts(like services),But it is not real services like linux,There are some text!
-After the printed texts,you will see the ASCII of MSH,And the command prompt.
+When you run MSH,You can see the command prompt.You can use guide to use MSH better!
 ***
 # 3.Use Commands in MSH
 For use MSH commands,Go to the directory contains the MSH.sh file and the guide.
