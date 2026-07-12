@@ -4,7 +4,7 @@ MSH_REPO_URL="https://github.com/MEHRAD111/Msh.git"
 MSH_PKG_INDEX="https://raw.githubusercontent.com/MEHRAD111/MshRepo/main/index.json"
 
 clear
-echo "Welcome To MSH SRR (Gazaneh)"
+echo "Welcome To MSH Stable Build 6"
 echo "
 oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
  8888o   888  888         888   888       888         888    888  888    888
@@ -16,7 +16,6 @@ o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
 # =========================
 # Main Shell Loop
 # =========================
-build=5
 GREEN='\033[38;5;120m'
 BLUE='\033[38;5;117m'
 YELLOW='\033[38;5;221m'
@@ -88,8 +87,7 @@ while true; do
 
         # --- System info ---
         whoami)
-            echo "MRU"
-            command whoami
+            whoami
             ;;
 
         disk)
@@ -121,23 +119,25 @@ while true; do
             ;;
 
         upgrade-system)
-            sudo apt upgrade -y 2>/dev/null
-            sudo dnf upgrade -y 2>/dev/null
-            sudo zypper update -y 2>/dev/null
-            sudo pacman -Syu --noconfirm 2>/dev/null
+            sudo apt upgrade 2>/dev/null
+            sudo dnf upgrade 2>/dev/null
+            sudo zypper update  2>/dev/null
+            sudo pacman -Syu 2>/dev/null
             ;;
-<<<<<<< HEAD
-           
-            
-=======
->>>>>>> 7e3f6c5 (Updated The MshCenter)
              install)
              read -rp "=>" installing
              sudo apt install $installing 2>/dev/null
              sudo dnf install $installing 2>/dev/null
              sudo pacman -S $installing 2>/dev/null
              sudo zypper in $installing 2>/dev/null
-             ;;     
+             ;;    
+             remove)
+             read -rp "=>" remove
+             sudo apt remove $remove 
+             sudo dnf remove $remove 
+             sudo pacman -R $remove 
+             sudo zypper remove $remove
+             ;; 
         access)
             chmod +x "$args"
             ;;
@@ -176,23 +176,9 @@ while true; do
 
         # --- Msh tools ---
         msh-refresh)
-            read -rp "Do you clone the Msh? (yes/no) We need to delete the Msh folder and fetch the updates: " answer
-            if [[ "$answer" == "yes" ]]; then
-                sudo rm -rf Msh
-                sudo git clone "$MSH_REPO_URL"
-                cd Msh
-                sudo git switch Rolling-Release
-                echo "Your MSH SRR Build : $build"
-                echo "The File Build : " cat MSH-SRR.sh | grep build
-               else
-                sudo git clone "$MSH_REPO_URL"
-                cd Msh
-                sudo git switch Rolling-Release
-                echo "Your MSH SRR Build : $build"
-                echo "_+_+_+_+_+_+_+_+_+_"
-                echo "The File Build : " cat MSH-SRR.sh | grep build
+           
                 
-            fi
+            
             ;;
 
         guide)
@@ -205,16 +191,12 @@ while true; do
             ;;
 
         information-full)
-            echo "Msh SRR "
-            echo "Github branch rolling-release"
-            echo "MshCenter v3"
-            echo "Release URL: github.com/MEHRAD111"
+            echo "Msh SRR Build6"
+            echo "Github branch Rolling-Release"
+            echo "MshCenter v3.5"
+            echo "MPKG V5"
+            echo "Release URL: github.com/MEHRAD111/Msh"
             ;;
-
-        version)
-            echo "MPCos MSH SRR"
-            ;;
-
         mshcenter)
             echo "
 ███╗   ███╗███████╗██╗  ██╗     ██████╗███████╗███╗   ██╗████████╗███████╗██████╗
@@ -235,7 +217,7 @@ while true; do
 ██╔████╔██║██████╔╝█████╔╝ ██║  ███╗
 ██║╚██╔╝██║██╔═══╝ ██╔═██╗ ██║   ██║
 ██║ ╚═╝ ██║██║     ██║  ██╗╚██████╔╝
-╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝
+╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V5
             '
             echo "MPKG (Msh Plugin/Package Manager)"
             echo "Usage: mpkg-get, mpkg-show, mpkg-list, mpkg-enable, mpkg-disable, mpkg-run"
@@ -299,7 +281,8 @@ oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo
  88  888  88          888 888   888               888 888  88o    888  88o  
 o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
 "
-hostnamectl                                                                                                                                        ;;
+hostnamectl
+;;
 
         *)
             echo "Command not found: $command"
