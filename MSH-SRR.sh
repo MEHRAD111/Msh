@@ -16,6 +16,7 @@ o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
 # =========================
 # Main Shell Loop
 # =========================
+build=7
 GREEN='\033[38;5;120m'
 BLUE='\033[38;5;117m'
 YELLOW='\033[38;5;221m'
@@ -176,7 +177,7 @@ while true; do
 
         # --- Msh tools ---
         msh-refresh)
-           
+           wget -qO- https://raw.githubusercontent.com/MEHRAD111/MshRepo/refs/heads/main/release.number
                 
             
             ;;
@@ -188,14 +189,6 @@ while true; do
             else
                 echo "Msh folder not found."
             fi
-            ;;
-
-        information-full)
-            echo "Msh SRR Build6"
-            echo "Github branch Rolling-Release"
-            echo "MshCenter v3.5"
-            echo "MPKG V5"
-            echo "Release URL: github.com/MEHRAD111/Msh"
             ;;
         mshcenter)
             echo "
