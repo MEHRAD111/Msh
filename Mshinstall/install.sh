@@ -30,13 +30,7 @@ case "$number" in
         ;;
     3)
         echo "Opening MshCustomInstaller..."
-        read -p "Vim or Nano?" ide
-        case "$ide" in
-        vim)
-        sudo vim custominstall.icf
-        ;;
-        nano)
-        sudo nano custominstall.icf
+        sudo nano custominstallerfile.icf
         ;;
         esac
         ;;
@@ -47,7 +41,7 @@ case "$number" in
         poweroff
         ;;
     6)
-        nano BootCommands
+        sudo nano BootCommands
         ;;
     *)
         echo "Invalid option!"
