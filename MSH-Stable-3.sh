@@ -171,23 +171,8 @@ while true; do
 
         # --- Msh tools ---
         msh-refresh)
-            read -rp "Do you clone the Msh? (yes/no) We need to delete the Msh folder and fetch the updates: " answer
-            if [[ "$answer" == "yes" ]]; then
-                sudo rm -rf Msh
-                sudo git clone "$MSH_REPO_URL"
-                cd Msh
-                sudo git switch Stable
-                echo "Your MSH SRR Build : $build"
-                echo "The File Build : " cat MSH-Stable-3.sh | grep build
-               else
-                sudo git clone "$MSH_REPO_URL"
-                cd Msh
-                sudo git switch Stable
-                echo "Your MSH Stable Version : $build"
-                echo "_+_+_+_+_+_+_+_+_+_"
-                echo "The File Version : " cat MSH-Stable-3.sh | grep build
-                
-            fi
+        echo "Your Version = $build"
+            wget -qO- https://raw.githubusercontent.com/MEHRAD111/MshRepo/refs/heads/main/release.number
             ;;
 
         guide)
