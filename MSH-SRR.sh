@@ -1,22 +1,7 @@
 #!/bin/bash
-
-MSH_REPO_URL="https://github.com/MEHRAD111/Msh.git"
-MSH_PKG_INDEX="https://raw.githubusercontent.com/MEHRAD111/MshRepo/main/index.json"
-
-clear
-echo "Welcome To MSH Stable Build 6"
-echo "
-oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
- 8888o   888  888         888   888       888         888    888  888    888
- 88 888o8 88   888oooooo  888ooo888        888oooooo  888oooo88   888oooo88 
- 88  888  88          888 888   888               888 888  88o    888  88o  
-o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
-"
-
-# =========================
-# Main Shell Loop
-# =========================
-build=7
+#Star Of Msh
+#Var
+build=8
 GREEN='\033[38;5;120m'
 BLUE='\033[38;5;117m'
 YELLOW='\033[38;5;221m'
@@ -34,6 +19,23 @@ SHORT_DIR=$(echo "$CURRENT_DIR" | sed "s|$HOME_DIR|~|")
 PS3="$(echo -e "
 ${DIM}${DARK}╭─${RESET}${BOLD}${GREEN}${USER_NAME}${RESET}${DIM}${GRAY}@${RESET}${BOLD}${BLUE}${HOST_NAME}${RESET}${DIM}${GRAY} │ ${RESET}${BOLD}${YELLOW}${SHORT_DIR}${RESET}
 ${DIM}${DARK}╰─${RESET}${BOLD}${PINK}❯${RESET} ")"
+MSH_REPO_URL="https://github.com/MEHRAD111/Msh.git"
+MSH_PKG_INDEX="https://raw.githubusercontent.com/MEHRAD111/MshRepo/main/index.json"
+#ASCII 
+clear
+echo "Welcome To MSH Srr"
+echo "
+oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
+ 8888o   888  888         888   888       888         888    888  888    888
+ 88 888o8 88   888oooooo  888ooo888        888oooooo  888oooo88   888oooo88 
+ 88  888  88          888 888   888               888 888  88o    888  88o  
+o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
+"
+
+# =========================
+# Main Shell Loop
+# =========================
+
 while true; do
     read -rp "$PS3" command args
 
@@ -51,8 +53,7 @@ while true; do
 
         clear)
             clear
-            ;;
-
+        ;;
         print)
             echo "$args"
             ;;
@@ -197,7 +198,7 @@ while true; do
 ██╔████╔██║███████╗███████║    ██║     █████╗  ██╔██╗ ██║   ██║   █████╗  ██████╔╝
 ██║╚██╔╝██║╚════██║██╔══██║    ██║     ██╔══╝  ██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
 ██║ ╚═╝ ██║███████║██║  ██║    ╚██████╗███████╗██║ ╚████║   ██║   ███████╗██║  ██║
-╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V3.5
+╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V4
             "
             echo "MSh Center is the Msh updater. It works with git to download updates."
             echo "Command: msh-refresh"
@@ -282,3 +283,4 @@ hostnamectl
             ;;
     esac
 done
+#End Of Msh
