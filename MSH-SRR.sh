@@ -113,32 +113,29 @@ while true; do
             ;;
 
         refresh-system)
-            echo "Trying package updates..."
-            sudo apt update 2>/dev/null
-            sudo dnf update 2>/dev/null
-            sudo zypper refresh 2>/dev/null
-            sudo pacman -Syu --noconfirm 2>/dev/null
+            sudo apt update 
+            sudo dnf update 
+            sudo zypper refresh 
+            sudo pacman -Syu 
             ;;
 
         upgrade-system)
-            sudo apt upgrade 2>/dev/null
-            sudo dnf upgrade 2>/dev/null
-            sudo zypper update  2>/dev/null
-            sudo pacman -Syu 2>/dev/null
+            sudo apt upgrade 
+            sudo dnf upgrade 
+            sudo zypper update 
+            sudo pacman -Syu 
             ;;
              install)
-             read -rp "=>" installing
-             sudo apt install $installing 2>/dev/null
-             sudo dnf install $installing 2>/dev/null
-             sudo pacman -S $installing 2>/dev/null
-             sudo zypper in $installing 2>/dev/null
+             sudo apt install "$args" 
+             sudo dnf install "$args" 
+             sudo pacman -S   "$args" 
+             sudo zypper in   "$args" 
              ;;    
              remove)
-             read -rp "=>" remove
-             sudo apt remove $remove 
-             sudo dnf remove $remove 
-             sudo pacman -R $remove 
-             sudo zypper remove $remove
+             sudo apt remove   "$args"
+             sudo dnf remove  "$args" 
+             sudo pacman -R  "$args" 
+             sudo zypper remove "$args"
              ;; 
         access)
             chmod +x "$args"
@@ -277,7 +274,39 @@ o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
 "
 hostnamectl
 ;;
-
+backup-config)
+echo "Msh Backup Config Started"
+read -rp "Do You Want To Continue?[y/n]" BCT
+if [ "$BCT" == "y" ]; then
+echo "Start Backup From All Tools"
+mkdir -p ~/Backuped
+cp -r ~/.bashrc ~/.bash_profile ~/.profile ~/.zshrc \
+~/.gitconfig ~/.git-credentials \
+~/.ssh \
+~/.gnupg \
+~/.config/kdeglobals \
+~/.config/kwinrc \
+~/.config/plasmarc \
+~/.config/plasma-org.kde.plasma.desktop-appletsrc \
+~/.config/kglobalshortcutsrc \
+~/.config/ksmserverrc \
+~/.config/dolphinrc \
+~/.config/Code \
+~/.vscode \
+~/.config/nvim \
+~/.vim \
+~/.vimrc \
+~/.mozilla/firefox \
+~/.config/chromium \
+~/.config/google-chrome \
+~/.docker \
+~/.config/fish \
+~/.config/starship.toml \
+~/Backuped
+else
+echo "Backup Stopped"
+fi
+;;
         *)
             echo "Command not found: $command"
             ;;
