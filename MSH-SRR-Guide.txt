@@ -53,7 +53,7 @@ In this chapter,you learn a lot of things about msh commands:
 
 17.pyhton-run:open the .py file and run it with python3
 
-18.git:you can use it with for work with git(limited)(git)\
+18.git:you can use it with for work with git(git)
 
 19.refresh-system:update your system and get new packages(it use your distro package manager)
 
@@ -84,6 +84,8 @@ In this chapter,you learn a lot of things about msh commands:
 32.mpkg-enable:Use this to enable a plugin.
 
 33.mpkg-run:Use For Run A plugin.
+
+34.backup-config:A Powerful,Built-In And Simple For Backup From Your Importmant .config Files 
 ==================================================
 Chapter 5:How do we know when new updates are available?
 
