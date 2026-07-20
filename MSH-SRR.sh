@@ -1,7 +1,6 @@
 #!/bin/bash
-#Star Of Msh
+#Start Of Msh
 #Var
-build=8
 GREEN='\033[38;5;120m'
 BLUE='\033[38;5;117m'
 YELLOW='\033[38;5;221m'
@@ -175,7 +174,7 @@ while true; do
 
         # --- Msh tools ---
         msh-refresh)
-           wget -qO- https://raw.githubusercontent.com/MEHRAD111/MshRepo/refs/heads/main/release.number
+           #Dont have any idea to create a update system
                 
             
             ;;
@@ -306,6 +305,18 @@ cp -r ~/.bashrc ~/.bash_profile ~/.profile ~/.zshrc \
 else
 echo "Backup Stopped"
 fi
+;;
+run)
+case "$args" in
+sudo)
+echo "Cant run this command"
+;;
+ls)
+echo "Cant run this command"
+;;
+*)
+"$args"
+esac
 ;;
         *)
             echo "Command not found: $command"
