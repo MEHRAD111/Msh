@@ -169,7 +169,7 @@ while true; do
             codium
             ;;
             docker)
-            docker
+            docker "$args"
             ;;
 
         # --- Msh tools ---
@@ -186,6 +186,17 @@ while true; do
             else
                 echo "Msh folder not found."
             fi
+            ;;
+            mctl)
+            echo "McTL (Msh Control)"
+            echo "McTL : Usage [enable,disable]"
+            echo "
+            Shell->Mctl
+                   |_Services
+                    |_MshCenter
+                     |_MPKG
+                      |_BackupConfig
+            "
             ;;
         mshcenter)
             echo "
@@ -309,11 +320,24 @@ fi
 run)
 case "$args" in
 sudo)
-echo "Cant run this command"
+echo "X"
 ;;
 ls)
-echo "Cant run this command"
+echo "X"
 ;;
+apt)
+echo "X"
+;;
+dnf)
+echo "X"
+;;
+yum)
+echo "X"
+;;
+zypper)
+echo "X"
+;;
+
 *)
 "$args"
 esac
