@@ -2,43 +2,39 @@
 #Start Of Msh
 #Var
 GREEN='\033[38;5;120m'
-BLUE='\033[38;5;117m'
-YELLOW='\033[38;5;221m'
-PINK='\033[38;5;211m'
-GRAY='\033[38;5;246m'
-DARK='\033[38;5;238m'
-RESET='\033[0m'
-BOLD='\033[1m'
-DIM='\033[2m'
-USER_NAME=$(whoami)
-HOST_NAME=$(hostname)
-CURRENT_DIR=$(pwd)
-HOME_DIR="$HOME"
-SHORT_DIR=$(echo "$CURRENT_DIR" | sed "s|$HOME_DIR|~|")
-PS3="$(echo -e "
-${DIM}${DARK}╭─${RESET}${BOLD}${GREEN}${USER_NAME}${RESET}${DIM}${GRAY}@${RESET}${BOLD}${BLUE}${HOST_NAME}${RESET}${DIM}${GRAY} │ ${RESET}${BOLD}${YELLOW}${SHORT_DIR}${RESET}
-${DIM}${DARK}╰─${RESET}${BOLD}${PINK}❯${RESET} ")"
-MSH_REPO_URL="https://github.com/MEHRAD111/Msh.git"
-MSH_PKG_INDEX="https://raw.githubusercontent.com/MEHRAD111/MshRepo/main/index.json"
+  BLUE='\033[38;5;117m'
+  YELLOW='\033[38;5;221m'
+  PINK='\033[38;5;211m'
+  GRAY='\033[38;5;246m'
+  DARK='\033[38;5;238m'
+  RESET='\033[0m'
+  BOLD='\033[1m'
+  DIM='\033[2m'
+  USER_NAME=$(whoami)
+  HOST_NAME=$(hostname)
+  CURRENT_DIR=$(pwd)
+  HOME_DIR="$HOME"
+  SHORT_DIR=$(echo "$CURRENT_DIR" | sed "s|$HOME_DIR|~|")
+  PS3="$(echo -e "
+  ${DIM}${DARK}╭─${RESET}${BOLD}${GREEN}${USER_NAME}${RESET}${DIM}${GRAY}@${RESET}${BOLD}${BLUE}${HOST_NAME}${RESET}${DIM}${GRAY} │ ${RESET}${BOLD}${YELLOW}${SHORT_DIR}${RESET}
+  ${DIM}${DARK}╰─${RESET}${BOLD}${PINK}❯${RESET} ")"
+  MSH_REPO_URL="https://github.com/MEHRAD111/Msh.git"
+  MSH_PKG_INDEX="https://raw.githubusercontent.com/MEHRAD111/MshRepo/main/index.json"
 #ASCII 
-clear
-echo "Welcome To MSH Srr"
-echo "
-oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
- 8888o   888  888         888   888       888         888    888  888    888
- 88 888o8 88   888oooooo  888ooo888        888oooooo  888oooo88   888oooo88 
- 88  888  88          888 888   888               888 888  88o    888  88o  
-o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
-"
-
-# =========================
+ clear
+ echo "Welcome To MSH Srr"
+ echo "
+ oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
+  8888o   888  888         888   888       888         888    888  888    888
+  88 888o8 88   888oooooo  888ooo888        888oooooo  888oooo88   888oooo88 
+  88  888  88          888 888   888               888 888  88o    888  88o  
+ o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
+ "
 # Main Shell Loop
-# =========================
-
 while true; do
     read -rp "$PS3" command args
 
-    case "$command" in
+     case "$command" in
 
         # --- General ---
         exit|quit)
@@ -124,18 +120,18 @@ while true; do
             sudo zypper update 
             sudo pacman -Syu 
             ;;
-             install)
-             sudo apt install "$args" 
-             sudo dnf install "$args" 
-             sudo pacman -S   "$args" 
-             sudo zypper in   "$args" 
-             ;;    
-             remove)
-             sudo apt remove   "$args"
-             sudo dnf remove  "$args" 
-             sudo pacman -R  "$args" 
-             sudo zypper remove "$args"
-             ;; 
+            install)
+            sudo apt install "$args" 
+            sudo dnf install "$args" 
+            sudo pacman -S   "$args" 
+            sudo zypper in   "$args" 
+            ;;    
+            remove)
+            sudo apt remove   "$args"
+            sudo dnf remove  "$args" 
+            sudo pacman -R  "$args" 
+            sudo zypper remove "$args"
+            ;; 
         access)
             chmod +x "$args"
             ;;
@@ -190,35 +186,28 @@ while true; do
             mctl)
             echo "McTL (Msh Control)"
             echo "McTL : Usage [enable,disable]"
-            echo "
-            Shell->Mctl
-                   |_Services
-                    |_MshCenter
-                     |_MPKG
-                      |_BackupConfig
-            "
             ;;
         mshcenter)
             echo "
-███╗   ███╗███████╗██╗  ██╗     ██████╗███████╗███╗   ██╗████████╗███████╗██████╗
-████╗ ████║██╔════╝██║  ██║    ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔════╝██╔══██╗
-██╔████╔██║███████╗███████║    ██║     █████╗  ██╔██╗ ██║   ██║   █████╗  ██████╔╝
-██║╚██╔╝██║╚════██║██╔══██║    ██║     ██╔══╝  ██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
-██║ ╚═╝ ██║███████║██║  ██║    ╚██████╗███████╗██║ ╚████║   ██║   ███████╗██║  ██║
-╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V4
+              ███╗   ███╗███████╗██╗  ██╗     ██████╗███████╗███╗   ██╗████████╗███████╗██████╗
+              ████╗ ████║██╔════╝██║  ██║    ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔════╝██╔══██╗
+              ██╔████╔██║███████╗███████║    ██║     █████╗  ██╔██╗ ██║   ██║   █████╗  ██████╔╝
+              ██║╚██╔╝██║╚════██║██╔══██║    ██║     ██╔══╝  ██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
+              ██║ ╚═╝ ██║███████║██║  ██║    ╚██████╗███████╗██║ ╚████║   ██║   ███████╗██║  ██║
+              ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V4
             "
-            echo "MSh Center is the Msh updater. It works with git to download updates."
+            echo "Msh Center is the Msh updater. It works with git to download updates."
             echo "Command: msh-refresh"
             ;;
 
         mpkg)
             echo '
-███╗   ███╗██████╗ ██╗  ██╗ ██████╗
-████╗ ████║██╔══██╗██║ ██╔╝██╔════╝
-██╔████╔██║██████╔╝█████╔╝ ██║  ███╗
-██║╚██╔╝██║██╔═══╝ ██╔═██╗ ██║   ██║
-██║ ╚═╝ ██║██║     ██║  ██╗╚██████╔╝
-╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V5
+              ███╗   ███╗██████╗ ██╗  ██╗ ██████╗
+              ████╗ ████║██╔══██╗██║ ██╔╝██╔════╝
+              ██╔████╔██║██████╔╝█████╔╝ ██║  ███╗
+              ██║╚██╔╝██║██╔═══╝ ██╔═██╗ ██║   ██║
+              ██║ ╚═╝ ██║██║     ██║  ██╗╚██████╔╝
+              ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V5
             '
             echo "MPKG (Msh Plugin/Package Manager)"
             echo "Usage: mpkg-get, mpkg-show, mpkg-list, mpkg-enable, mpkg-disable, mpkg-run"
@@ -226,20 +215,26 @@ while true; do
             ;;
 
         mpkg-get)
-    read -rp "Package name: " PKG
+            PKG="$args"
+        
+            if [[ -z "$PKG" ]]; then
+                echo -e "\033[1;31mUsage: mpkg-get <plugin-name>\033[0m"
+            fi
+        
+            INDEX=$(curl -s "$MSH_PKG_INDEX")
+            URL=$(echo "$INDEX" | grep -A3 "\"$PKG\"" | grep "url" | cut -d '"' -f4)
+        
+            if [[ -z "$URL" ]]; then
+                echo -e "\033[1;31m✗ Package not found: $PKG\033[0m"
+            else
+                curl -s "$URL" -o "./${PKG}.sh"
+                chmod +x "./${PKG}.sh"
+                echo -e "\033[1;32m✓ Installed: $PKG in $(pwd)\033[0m"
+            fi
+    
+            ;;
 
-    INDEX=$(curl -s "$MSH_PKG_INDEX")
-    URL=$(echo "$INDEX" | grep -A3 "\"$PKG\"" | grep "url" | cut -d '"' -f4)
-
-    if [[ -z "$URL" ]]; then
-        echo -e "\033[1;31m✗ Package not found: $PKG\033[0m"
-    else
-        curl -s "$URL" -o "./${PKG}.sh"
-        chmod +x "./${PKG}.sh"
-        echo -e "\033[1;32m✓ Installed: $PKG in $(pwd)\033[0m"
-    fi
-    ;;
-            mpkg-show)
+        mpkg-show)
             echo "Download And Show The Available Plugin.."
             echo ""
             wget "https://github.com/MEHRAD111/MshRepo/raw/refs/heads/main/available.plugin"
@@ -247,101 +242,82 @@ while true; do
             sudo rm available.plugin
             ;;
             mpkg-disable)
-            read -rp "Which Plugin Do You Want to Disable :>" plugind
-            if [[ -f "$plugind.sh" ]]; then
-            mv "$plugind.sh" ".$plugind.sh"
+            if [[ -f "$args.sh" ]]; then
+            mv "$args.sh" ".$args.sh"
+            echo "Plugin $args Disabled"
+            elif [ "$args" == "" ]; then
+            echo "Usage : mpkg-disable <plugin-name>"
              else
-             echo "$plugind plugin not found."
+             echo "Plugin $args Not Found."
              fi
             
             ;;
-            mpkg-enable)
-            read -rp "Which Plugin Do You Want To Enable :>" plugine
-            if [[ -f ".$plugine.sh" ]]; then
-            mv ".$plugine.sh" "$plugine.sh"
+        mpkg-enable)
+            if [[ -f ".$args.sh" ]]; then
+            mv ".$args.sh" "$args.sh"
+            echo "Plugin $args Enabled"
+            elif [ "$args" == "" ]; then
+            echo "Usage : mpkg-enable <plugin-name>"
              else
-             echo "$plugine.sh not found."
+             echo "Plugin $args Not Found."
              fi
             ;;
-            mpkg-list)
+        mpkg-list)
             ls *.sh
             ;;
             mpkg-run)
-            read -rp "Which Plugin Do You Want To Run:>" pluginr
-            if [[ -f "$pluginr.sh" ]]; then
-            bash "$pluginr.sh"
+            if [[ -f "$args.sh" ]]; then
+            bash "$args.sh"
+            elif [ "$args" == "" ]; then
+            echo "Usage : mpkg-run <plugin-name>"
             else
-            echo "$pluginr.sh not found"
+            echo "Plugin $args Not Found"
             fi
             ;;
-            mshfetch)
+        mshfetch)
              echo "
-oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
- 8888o   888  888         888   888       888         888    888  888    888
- 88 888o8 88   888oooooo  888ooo888        888oooooo  888oooo88   888oooo88 
- 88  888  88          888 888   888               888 888  88o    888  88o  
-o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
-"
-hostnamectl
-;;
-backup-config)
-echo "Msh Backup Config Started"
-read -rp "Do You Want To Continue?[y/n]" BCT
-if [ "$BCT" == "y" ]; then
-echo "Start Backup From All Tools"
-mkdir -p ~/Backuped
-cp -r ~/.bashrc ~/.bash_profile ~/.profile ~/.zshrc \
-~/.gitconfig ~/.git-credentials \
-~/.ssh \
-~/.gnupg \
-~/.config/kdeglobals \
-~/.config/kwinrc \
-~/.config/plasmarc \
-~/.config/plasma-org.kde.plasma.desktop-appletsrc \
-~/.config/kglobalshortcutsrc \
-~/.config/ksmserverrc \
-~/.config/dolphinrc \
-~/.config/Code \
-~/.vscode \
-~/.config/nvim \
-~/.vim \
-~/.vimrc \
-~/.mozilla/firefox \
-~/.config/chromium \
-~/.config/google-chrome \
-~/.docker \
-~/.config/fish \
-~/.config/starship.toml \
-~/Backuped
-else
-echo "Backup Stopped"
-fi
-;;
-run)
-case "$args" in
-sudo)
-echo "X"
-;;
-ls)
-echo "X"
-;;
-apt)
-echo "X"
-;;
-dnf)
-echo "X"
-;;
-yum)
-echo "X"
-;;
-zypper)
-echo "X"
-;;
+              oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
+               8888o   888  888         888   888       888         888    888  888    888
+               88 888o8 88   888oooooo  888ooo888        888oooooo  888oooo88   888oooo88 
+               88  888  88          888 888   888               888 888  88o    888  88o  
+              o88o  8  o88o o88oooo888 o888o o888o      o88oooo888 o888o  88o8 o888o  88o8
+                "
+                  hostnamectl
+            ;;
+        backup-config)
+             echo "Msh Backup Config Started"
+             read -rp "Do You Want To Continue?[y/n]" BCT
+             if [ "$BCT" == "y" ]; then
+             echo "Start Backup From All Tools"
+             mkdir -p ~/Backuped
+             cp -r ~/.bashrc ~/.bash_profile ~/.profile ~/.zshrc \
+             ~/.gitconfig ~/.git-credentials \
+             ~/.ssh \
+             ~/.gnupg \
+             ~/.config/kdeglobals \
+             ~/.config/kwinrc \
+             ~/.config/plasmarc \
+             ~/.config/plasma-org.kde.plasma.desktop-appletsrc \
+             ~/.config/kglobalshortcutsrc \
+             ~/.config/ksmserverrc \
+             ~/.config/dolphinrc \
+             ~/.config/Code \
+             ~/.vscode \
+             ~/.config/nvim \
+             ~/.vim \
+             ~/.vimrc \
+             ~/.mozilla/firefox \
+             ~/.config/chromium \
+             ~/.config/google-chrome \
+             ~/.docker \
+             ~/.config/fish \
+             ~/.config/starship.toml \
+             ~/Backuped
+             else
+             echo "Backup Stopped"
+             fi
+            ;;
 
-*)
-"$args"
-esac
-;;
         *)
             echo "Command not found: $command"
             ;;
