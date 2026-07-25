@@ -1,6 +1,7 @@
 #!/bin/bash
 #Start Of Msh
 #Var
+  build=47
   GREEN='\033[38;5;120m'
   BLUE='\033[38;5;117m'
   YELLOW='\033[38;5;221m'
@@ -170,10 +171,15 @@ while true; do
 
         # --- Msh tools ---
         msh-refresh)
-           
-                
-            
-            ;;
+           BUILD=$(wget -qO- https://raw.githubusercontent.com/MEHRAD111/Msh/refs/heads/Rolling-Release/MSH-SRR.sh \
+           | awk -F': ' '/^Build/ {print $2}')
+           if [ "$BUILD" == "$build" ]; then
+           echo "Your Msh Is Up-To-Date"
+           else
+           echo "A New Version Is Available : $BUILD"
+           echo "Please Update Your Msh"
+           fi
+           ;;
 
         guide)
             echo "If you have not cloned Msh, please run [msh-refresh] first"
