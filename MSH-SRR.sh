@@ -1,7 +1,7 @@
 #!/bin/bash
 #Start Of Msh
 #Var
-GREEN='\033[38;5;120m'
+  GREEN='\033[38;5;120m'
   BLUE='\033[38;5;117m'
   YELLOW='\033[38;5;221m'
   PINK='\033[38;5;211m'
@@ -170,7 +170,7 @@ while true; do
 
         # --- Msh tools ---
         msh-refresh)
-           #Dont have any idea to create a update system
+           
                 
             
             ;;
@@ -207,7 +207,7 @@ while true; do
               ██╔████╔██║██████╔╝█████╔╝ ██║  ███╗
               ██║╚██╔╝██║██╔═══╝ ██╔═██╗ ██║   ██║
               ██║ ╚═╝ ██║██║     ██║  ██╗╚██████╔╝
-              ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V5
+              ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V6
             '
             echo "MPKG (Msh Plugin/Package Manager)"
             echo "Usage: mpkg-get, mpkg-show, mpkg-list, mpkg-enable, mpkg-disable, mpkg-run"
@@ -241,7 +241,7 @@ while true; do
             cat available.plugin
             sudo rm available.plugin
             ;;
-            mpkg-disable)
+        mpkg-disable)
             if [[ -f "$args.sh" ]]; then
             mv "$args.sh" ".$args.sh"
             echo "Plugin $args Disabled"
