@@ -1,0 +1,88 @@
+body {
+  background-color: rgb(65, 87, 105);
+  margin: 0;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 4px solid transparent;
+  justify-content: center;
+  min-height: 75vh;
+  padding: 20px;
+}
+
+.login-form h1 {
+  color: #fff;
+  margin: 10px 0;
+}
+
+.demo-notice {
+  color: #e2e2e2;
+  font-size: 0.85rem;
+  text-align: center;
+  max-width: 280px;
+  margin-bottom: 12px;
+}
+
+.login-form label {
+  color: #fff;
+  margin-top: 8px;
+}
+
+.login-form input,
+.login-form select {
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  transition: 0.5s ease;
+  padding: 8px 12px;
+  margin-top: 4px;
+  border: none;
+  min-width: 220px;
+}
+
+.login-form input:focus,
+.login-form select:focus {
+  outline: 2px solid #00ff99;
+  background-color: rgb(204, 204, 204);
+}
+
+.login-form select {
+  background-color: rgb(112, 131, 148);
+  margin-top: 8px;
+  text-align: center;
+}
+
+.login-form option {
+  background-color: #e2e2e2;
+}
+
+.login-form button {
+  margin-top: 16px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px 24px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #00ff99;
+}
+
+.message {
+  min-height: 1.5em;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.message--error {
+  color: #ff6b6b;
+}
+
+.message--success {
+  color: #00ff99;
+}
