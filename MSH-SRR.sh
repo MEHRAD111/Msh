@@ -33,7 +33,7 @@
  "
 # Main Shell Loop
 while true; do
-    read -rp "$PS3" command args
+    read -rp "$PS3" command args arg2 arg3
 
      case "$command" in
 
@@ -64,7 +64,7 @@ while true; do
             ;;
 
         go)
-            cd "$args" || echo "Directory not found"
+            cd "$args"
             ;;
 
         make-folder)
@@ -121,13 +121,13 @@ while true; do
             sudo zypper update 
             sudo pacman -Syu 
             ;;
-            install)
+        install)
             sudo apt install "$args" 
             sudo dnf install "$args" 
             sudo pacman -S   "$args" 
             sudo zypper in   "$args" 
             ;;    
-            remove)
+        remove)
             sudo apt remove   "$args"
             sudo dnf remove  "$args" 
             sudo pacman -R  "$args" 
@@ -177,16 +177,49 @@ while true; do
            ;;
 
         guide)
-            echo "If you have not cloned Msh, please run [msh-refresh] first"
-            if [[ -d Msh ]]; then
-                cat Msh/MSH-CRR-Guide.txt
-            else
-                echo "Msh folder not found."
-            fi
+           cat MSH-SRR-Guide.txt | less
             ;;
-            mctl)
-            echo "McTL (Msh Control)"
-            echo "McTL : Usage [enable,disable]"
+            
+            open)
+           case "$args" in
+              log)
+              journalctl | less
+              ;;
+              log2)
+              journalctl -b 2 | less
+              ;;
+              live-log)
+              journalctl -f
+              ;;
+              kernel-log)
+              journalctl -k | less
+              ;;
+              reclog)
+              journalctl -xe | less
+              ;;
+              errors)
+              journalctl -p err -b | less
+              ;;
+              warnings)
+              journalctl -p warning -b | less
+              ;;
+              disk)
+              journalctl --disk-usage
+              ;;
+              boots)
+              journalctl --list-boots
+              ;;
+              *)
+              echo "
+                  ooooooo                                      
+                o888   888o ooooooooo    ooooooooo8 oo oooooo  
+                888     888  888    888 888oooooo8   888   888 
+                888o   o888  888    888 888          888   888 
+                  88ooo88    888ooo88     88oooo888 o888o o888o
+                            o888                               
+                         "
+                    echo "Open | Usage : [log,log2,live-log,kernel-log,reclog,errors,warning,disk,boots]"           
+           esac
             ;;
         mshcenter)
             echo "
@@ -195,7 +228,7 @@ while true; do
               ██╔████╔██║███████╗███████║    ██║     █████╗  ██╔██╗ ██║   ██║   █████╗  ██████╔╝
               ██║╚██╔╝██║╚════██║██╔══██║    ██║     ██╔══╝  ██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
               ██║ ╚═╝ ██║███████║██║  ██║    ╚██████╗███████╗██║ ╚████║   ██║   ███████╗██║  ██║
-              ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V4
+              ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V6
             "
             echo "Msh Center is the Msh updater. It works with git to download updates."
             echo "Command: msh-refresh"
@@ -321,7 +354,7 @@ while true; do
 
         *)
             echo "Command not found: $command"
-            ;;
+            
     esac
 done
 #End Of Msh
