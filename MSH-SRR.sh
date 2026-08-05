@@ -33,7 +33,7 @@
  "
 # Main Shell Loop
 while true; do
-    read -rp "$PS3" command args
+    read -rp "$PS3" command args arg2 arg3
 
      case "$command" in
 
@@ -64,7 +64,7 @@ while true; do
             ;;
 
         go)
-            cd "$args" || echo "Directory not found"
+            cd "$args"
             ;;
 
         make-folder)
@@ -121,13 +121,13 @@ while true; do
             sudo zypper update 
             sudo pacman -Syu 
             ;;
-            install)
+        install)
             sudo apt install "$args" 
             sudo dnf install "$args" 
             sudo pacman -S   "$args" 
             sudo zypper in   "$args" 
             ;;    
-            remove)
+        remove)
             sudo apt remove   "$args"
             sudo dnf remove  "$args" 
             sudo pacman -R  "$args" 
@@ -165,28 +165,68 @@ while true; do
         codium)
             codium
             ;;
-            docker)
+        docker)
             docker "$args"
             ;;
 
         # --- Msh tools ---
         msh-refresh)
-        echo "Msh Srr GitHub Version:"
+          echo "Msh Srr GitHub Version:"
           wget -qO- https://raw.githubusercontent.com/MEHRAD111/Msh/refs/heads/Rolling-Release/MSH-SRR.sh | grep Build   
           echo "Your Msh Version:$Build"
            ;;
 
         guide)
-            echo "If you have not cloned Msh, please run [msh-refresh] first"
-            if [[ -d Msh ]]; then
-                cat Msh/MSH-CRR-Guide.txt
-            else
-                echo "Msh folder not found."
-            fi
+           cat MSH-SRR-Guide.txt | less
             ;;
-            mctl)
-            echo "McTL (Msh Control)"
-            echo "McTL : Usage [enable,disable]"
+            
+            open)
+           case "$args" in
+              log)
+              journalctl | less
+              ;;
+              log2)
+              journalctl -b 2 | less
+              ;;
+              live-log)
+              journalctl -f
+              ;;
+              kernel-log)
+              journalctl -k | less
+              ;;
+              reclog)
+              journalctl -xe | less
+              ;;
+              errors)
+              journalctl -p err -b | less
+              ;;
+              warnings)
+              journalctl -p warning -b | less
+              ;;
+              disk)
+              journalctl --disk-usage
+              df -h | less
+              ;;
+              boots)
+              journalctl --list-boots
+              ;;
+              website)
+              firefox web-five-delta-69.vercel.app
+              ;;
+              github)
+              firefox https://github.com/MEHRAD111/Msh
+              ;;
+              *)
+              echo "
+                  ooooooo                                      
+                o888   888o ooooooooo    ooooooooo8 oo oooooo  
+                888     888  888    888 888oooooo8   888   888 
+                888o   o888  888    888 888          888   888 
+                  88ooo88    888ooo88     88oooo888 o888o o888o 
+                            o888                               
+                         "
+                    echo "Open | Usage : [log,log2,live-log,kernel-log,reclog,errors,warning,disk,boots,website,github]"           
+           esac
             ;;
         mshcenter)
             echo "
@@ -195,30 +235,18 @@ while true; do
               ██╔████╔██║███████╗███████║    ██║     █████╗  ██╔██╗ ██║   ██║   █████╗  ██████╔╝
               ██║╚██╔╝██║╚════██║██╔══██║    ██║     ██╔══╝  ██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
               ██║ ╚═╝ ██║███████║██║  ██║    ╚██████╗███████╗██║ ╚████║   ██║   ███████╗██║  ██║
-              ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V4
+              ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V6
             "
             echo "Msh Center is the Msh updater. It works with git to download updates."
             echo "Command: msh-refresh"
             ;;
 
         mpkg)
-            echo '
-              ███╗   ███╗██████╗ ██╗  ██╗ ██████╗
-              ████╗ ████║██╔══██╗██║ ██╔╝██╔════╝
-              ██╔████╔██║██████╔╝█████╔╝ ██║  ███╗
-              ██║╚██╔╝██║██╔═══╝ ██╔═██╗ ██║   ██║
-              ██║ ╚═╝ ██║██║     ██║  ██╗╚██████╔╝
-              ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V6
-            '
-            echo "MPKG (Msh Plugin/Package Manager)"
-            echo "Usage: mpkg-get, mpkg-show, mpkg-list, mpkg-enable, mpkg-disable, mpkg-run"
-            
-            ;;
-
-        mpkg-get)
-            PKG="$args"
+            case "$args" in
+        get)    
+            PKG="$arg2"
         
-            if [[ -z "$PKG" ]]; then
+            if [[ -z "$arg2" ]]; then
                 echo -e "\033[1;31mUsage: mpkg-get <plugin-name>\033[0m"
             fi
         
@@ -234,47 +262,79 @@ while true; do
             fi
     
             ;;
-
-        mpkg-show)
+        run)
+        if [[ -f "$arg2.sh" ]]; then
+        bash $arg2.sh
+        else
+        echo "Plugin $arg2 Not Found"
+        fi
+        ;;
+        show)
             echo "Download And Show The Available Plugin.."
             echo ""
             wget "https://github.com/MEHRAD111/MshRepo/raw/refs/heads/main/available.plugin"
             cat available.plugin
             sudo rm available.plugin
             ;;
-        mpkg-disable)
-            if [[ -f "$args.sh" ]]; then
-            mv "$args.sh" ".$args.sh"
-            echo "Plugin $args Disabled"
-            elif [ "$args" == "" ]; then
+        disable)
+            if [[ -f "$arg2.sh" ]]; then
+            mv "$arg2.sh" ".$arg2.sh"
+            echo "Plugin $arg2 Disabled"
+            elif [ "$arg2" == "" ]; then
             echo "Usage : mpkg-disable <plugin-name>"
              else
-             echo "Plugin $args Not Found."
+             echo "Plugin $arg2 Not Found."
              fi
             
             ;;
-        mpkg-enable)
-            if [[ -f ".$args.sh" ]]; then
-            mv ".$args.sh" "$args.sh"
-            echo "Plugin $args Enabled"
-            elif [ "$args" == "" ]; then
+        enable)
+            if [[ -f ".$arg2.sh" ]]; then
+            mv ".$arg2.sh" "$arg2.sh"
+            echo "Plugin $arg2 Enabled"
+            elif [ "$arg2" == "" ]; then
             echo "Usage : mpkg-enable <plugin-name>"
              else
-             echo "Plugin $args Not Found."
+             echo "Plugin $arg2 Not Found."
              fi
             ;;
-        mpkg-list)
+        list)
             ls *.sh
             ;;
-            mpkg-run)
-            if [[ -f "$args.sh" ]]; then
-            bash "$args.sh"
-            elif [ "$args" == "" ]; then
+        run)
+            if [[ -f "$arg2.sh" ]]; then
+            bash "$arg2.sh"
+            elif [ "$arg2" == "" ]; then
             echo "Usage : mpkg-run <plugin-name>"
             else
-            echo "Plugin $args Not Found"
+            echo "Plugin $arg2 Not Found"
             fi
             ;;
+        info)
+         if [[ -f "$arg2.sh" ]]; then
+          cat "$arg2.sh" | grep Version
+          cat "$arg2.sh" | grep Branch
+           elif [ "$arg2" == "" ]; then
+          echo "Usage:mpkg info <plugin-name>"
+           else
+          echo "Plugin $arg2 Not Found"
+          fi
+          ;;    
+            *)
+            echo '
+              ███╗   ███╗██████╗ ██╗  ██╗ ██████╗
+              ████╗ ████║██╔══██╗██║ ██╔╝██╔════╝
+              ██╔████╔██║██████╔╝█████╔╝ ██║  ███╗
+              ██║╚██╔╝██║██╔═══╝ ██╔═██╗ ██║   ██║
+              ██║ ╚═╝ ██║██║     ██║  ██╗╚██████╔╝
+              ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V6
+            '
+            echo "MPKG (Msh Plugin/Package Manager)"
+            echo "Usage: get, show, list, enable, disable, run"
+            esac
+            
+            ;;
+
+        
         mshfetch)
              echo "
               oooo     oooo  oooooooo8 ooooo ooooo       oooooooo8 oooooooooo  oooooooooo 
@@ -321,7 +381,7 @@ while true; do
 
         *)
             echo "Command not found: $command"
-            ;;
+            
     esac
 done
 #End Of Msh
