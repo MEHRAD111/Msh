@@ -326,10 +326,10 @@ while true; do
               ██╔████╔██║██████╔╝█████╔╝ ██║  ███╗
               ██║╚██╔╝██║██╔═══╝ ██╔═██╗ ██║   ██║
               ██║ ╚═╝ ██║██║     ██║  ██╗╚██████╔╝
-              ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V6
+              ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V7
             '
             echo "MPKG (Msh Plugin/Package Manager)"
-            echo "Usage: get, show, list, enable, disable, run"
+            echo "Usage: get, show, list, enable, disable, run, info"
             esac
             
             ;;
@@ -378,7 +378,9 @@ while true; do
              echo "Backup Stopped"
              fi
             ;;
-
+            lynxctl)
+             git clone https://github.com/MEHRAD111/LynxCTL.git
+            ;;
         *)
             echo "Command not found: $command"
             
