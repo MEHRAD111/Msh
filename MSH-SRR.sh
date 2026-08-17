@@ -381,6 +381,59 @@ while true; do
             lynxctl)
              git clone https://github.com/MEHRAD111/LynxCTL.git
             ;;
+            sysmanager)
+             echo "Welcome to System Manager"
+             echo "
+             1.Default Kernel
+             2.Update System
+             3.Disk Usage
+             4.Disk - All
+             5.All info
+             "
+             read -rp ">>>" sysmgr
+             case "$sysmgr" in
+             1)
+             uname -r
+             ;;
+             2)
+             if [[ -f /usr/bin/pacman ]]; then
+             echo "Founded PacMan On Your System"
+             sudo pacman -Syu
+             elif [[ -f /usr/bin/dnf ]]; then 
+             echo "Founded DNF On Your System"
+             sudo dnf update && sudo dnf Upgrade
+             elif [[ -f /usr/bin/apt ]]; then
+             echo "Founded APT On Your System"
+             sudo apt update && sudo apt Upgrade
+             elif [[ -f /usr/bin/zypper ]]; then
+             echo "Founded Zypper On Your System"
+             sudo zypper ref
+             sudo zypper up
+             sudo zypper dup
+             fi
+             ;;
+             3)
+             df -h
+             ;;
+             4)
+             lsblk -f
+             ;;
+             5)
+             uname -a
+             ;;
+             *)
+             echo "
+ oooooooo8                      oooo     oooo                                                                     
+888       oooo   oooo oooooooo8  8888o   888   ooooooo   oo oooooo    ooooooo     oooooooo8 ooooooooo8 oo oooooo  
+ 888oooooo 888   888 888ooooooo  88 888o8 88   ooooo888   888   888   ooooo888  888    88o 888oooooo8   888    888
+        888 888 888          888 88  888  88 888    888   888   888 888    888   888oo888o 888          888       
+o88oooo888    8888   88oooooo88 o88o  8  o88o 88ooo88 8o o888o o888o 88ooo88 8o 888     888  88oooo888 o888o      
+           o8o888                                                                888ooo888                        
+             "
+             echo "SysManager "
+             esac
+
+            ;;
         *)
             echo "Command not found: $command"
             
