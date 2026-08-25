@@ -216,6 +216,9 @@ while true; do
               github)
               firefox https://github.com/MEHRAD111/Msh
               ;;
+              monitor)
+              htop || top
+              ;;
               *)
               echo "
                   ooooooo                                      
@@ -225,7 +228,7 @@ while true; do
                   88ooo88    888ooo88     88oooo888 o888o o888o 
                             o888                               
                          "
-                    echo "Open | Usage : [log,log2,live-log,kernel-log,reclog,errors,warning,disk,boots,website,github]"           
+                    echo "Open | Usage : [log,log2,live-log,kernel-log,reclog,errors,warning,disk,boots,website,github,monitor]"           
            esac
             ;;
         mshcenter)
@@ -272,7 +275,7 @@ while true; do
         show)
             echo "Download And Show The Available Plugin.."
             echo ""
-            wget "https://github.com/MEHRAD111/MshRepo/raw/refs/heads/main/available.plugin"
+            wget "https://github.com/MEHRAD111/MshRepo/raw/refs/heads/main/available.plugin" 2>/dev/null
             cat available.plugin
             sudo rm available.plugin
             ;;
@@ -430,7 +433,7 @@ while true; do
 o88oooo888    8888   88oooooo88 o88o  8  o88o 88ooo88 8o o888o o888o 88ooo88 8o 888     888  88oooo888 o888o      
            o8o888                                                                888ooo888                        
              "
-             echo "SysManager "
+             echo "SysManager"
              esac
 
             ;;
