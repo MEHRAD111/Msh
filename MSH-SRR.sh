@@ -1,7 +1,7 @@
 #!/bin/bash
 #Start Of Msh
 #Var
-  Build=47
+  Build=48
   GREEN='\033[38;5;120m'
   BLUE='\033[38;5;117m'
   YELLOW='\033[38;5;221m'
@@ -17,7 +17,7 @@
   HOME_DIR="$HOME"
   SHORT_DIR=$(echo "$CURRENT_DIR" | sed "s|$HOME_DIR|~|")
   PS3="$(echo -e "
-  ${DIM}${DARK}╭─${RESET}${BOLD}${GREEN}${USER_NAME}${RESET}${DIM}${GRAY}@${RESET}${BOLD}${BLUE}${HOST_NAME}${RESET}${DIM}${GRAY} │ ${RESET}${BOLD}${YELLOW}${SHORT_DIR}${RESET}
+  ${DIM}${DARK}╭─${RESET}${BOLD}${GREEN}${USER_NAME}${RESET}${DIM}${GRAY}@${RESET}${BOLD}${BLUE}${HOST_NAME}${RESET}${DIM}${GRAY} <│> ${RESET}${BOLD}${YELLOW}${SHORT_DIR}${RESET}
   ${DIM}${DARK}╰─${RESET}${BOLD}${PINK}❯${RESET} ")"
   MSH_REPO_URL="https://github.com/MEHRAD111/Msh.git"
   MSH_PKG_INDEX="https://raw.githubusercontent.com/MEHRAD111/MshRepo/main/index.json"
@@ -301,7 +301,7 @@ while true; do
              fi
             ;;
         list)
-            ls *.sh
+            ls *.sh 
             ;;
         run)
             if [[ -f "$arg2.sh" ]]; then
@@ -321,6 +321,15 @@ while true; do
            else
           echo "Plugin $arg2 Not Found"
           fi
+          ;;
+        repair)
+         if [[ -f "$arg2.sh" ]]; then
+         rm -rf "$arg2.sh"
+         wget https://raw.githubusercontent.com/MEHRAD111/MshRepo/refs/heads/main/"$arg2.sh" 2>/dev/null
+         echo "Repaired $arg2 : MPKG"
+         else
+         echo "Plugin Not Found: $arg2" 
+         fi
           ;;    
             *)
             echo '
@@ -354,7 +363,7 @@ while true; do
              if [ "$BCT" == "y" ]; then
              echo "Start Backup From All Tools"
              mkdir -p ~/Backuped
-             cp -r ~/.bashrc ~/.bash_profile ~/.profile ~/.zshrc \
+             cp -r ~/.bashrc ~/.bash_profile ~/.profile ~/.zshrc \ 
              ~/.gitconfig ~/.git-credentials \
              ~/.ssh \
              ~/.gnupg \
@@ -380,9 +389,6 @@ while true; do
              else
              echo "Backup Stopped"
              fi
-            ;;
-            lynxctl)
-             git clone https://github.com/MEHRAD111/LynxCTL.git
             ;;
             sysmanager)
              echo "Welcome to System Manager"
