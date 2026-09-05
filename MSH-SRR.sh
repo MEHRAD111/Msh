@@ -1,7 +1,7 @@
 #!/bin/bash
 #Start Of Msh
 #Var
-  Build=47
+  Build=48
   GREEN='\033[38;5;120m'
   BLUE='\033[38;5;117m'
   YELLOW='\033[38;5;221m'
@@ -17,7 +17,7 @@
   HOME_DIR="$HOME"
   SHORT_DIR=$(echo "$CURRENT_DIR" | sed "s|$HOME_DIR|~|")
   PS3="$(echo -e "
-  ${DIM}${DARK}╭─${RESET}${BOLD}${GREEN}${USER_NAME}${RESET}${DIM}${GRAY}@${RESET}${BOLD}${BLUE}${HOST_NAME}${RESET}${DIM}${GRAY} │ ${RESET}${BOLD}${YELLOW}${SHORT_DIR}${RESET}
+  ${DIM}${DARK}╭─${RESET}${BOLD}${GREEN}${USER_NAME}${RESET}${DIM}${GRAY}@${RESET}${BOLD}${BLUE}${HOST_NAME}${RESET}${DIM}${GRAY} <│> ${RESET}${BOLD}${YELLOW}${SHORT_DIR}${RESET}
   ${DIM}${DARK}╰─${RESET}${BOLD}${PINK}❯${RESET} ")"
   MSH_REPO_URL="https://github.com/MEHRAD111/Msh.git"
   MSH_PKG_INDEX="https://raw.githubusercontent.com/MEHRAD111/MshRepo/main/index.json"
@@ -216,26 +216,36 @@ while true; do
               github)
               firefox https://github.com/MEHRAD111/Msh
               ;;
+              monitor)
+              htop || top
+              ;;
               *)
               echo "
-                  ooooooo                                      
-                o888   888o ooooooooo    ooooooooo8 oo oooooo  
-                888     888  888    888 888oooooo8   888   888 
-                888o   o888  888    888 888          888   888 
-                  88ooo88    888ooo88     88oooo888 o888o o888o 
-                            o888                               
+    ███████                                 
+  ███░░░░░███                               
+ ███     ░░███ ████████   ██████  ████████  
+░███      ░███░░███░░███ ███░░███░░███░░███ 
+░███      ░███ ░███ ░███░███████  ░███ ░███ 
+░░███     ███  ░███ ░███░███░░░   ░███ ░███ 
+ ░░░███████░   ░███████ ░░██████  ████ █████
+   ░░░░░░░     ░███░░░   ░░░░░░  ░░░░ ░░░░░ 
+               ░███                         
+               █████                        
+              ░░░░░                                 
                          "
-                    echo "Open | Usage : [log,log2,live-log,kernel-log,reclog,errors,warning,disk,boots,website,github]"           
+                    echo "Open | Usage : [log,log2,live-log,kernel-log,reclog,errors,warning,disk,boots,website,github,monitor]"           
            esac
             ;;
         mshcenter)
             echo "
-              ███╗   ███╗███████╗██╗  ██╗     ██████╗███████╗███╗   ██╗████████╗███████╗██████╗
-              ████╗ ████║██╔════╝██║  ██║    ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔════╝██╔══██╗
-              ██╔████╔██║███████╗███████║    ██║     █████╗  ██╔██╗ ██║   ██║   █████╗  ██████╔╝
-              ██║╚██╔╝██║╚════██║██╔══██║    ██║     ██╔══╝  ██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
-              ██║ ╚═╝ ██║███████║██║  ██║    ╚██████╗███████╗██║ ╚████║   ██║   ███████╗██║  ██║
-              ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  V6
+ ██████   ██████         █████        █████████                       █████                      
+░░██████ ██████         ░░███        ███░░░░░███                     ░░███                       
+ ░███░█████░███   █████  ░███████   ███     ░░░   ██████  ████████   ███████    ██████  ████████ 
+ ░███░░███ ░███  ███░░   ░███░░███ ░███          ███░░███░░███░░███ ░░░███░    ███░░███░░███░░███
+ ░███ ░░░  ░███ ░░█████  ░███ ░███ ░███         ░███████  ░███ ░███   ░███    ░███████  ░███ ░░░ 
+ ░███      ░███  ░░░░███ ░███ ░███ ░░███     ███░███░░░   ░███ ░███   ░███ ███░███░░░   ░███     
+ █████     █████ ██████  ████ █████ ░░█████████ ░░██████  ████ █████  ░░█████ ░░██████  █████    
+░░░░░     ░░░░░ ░░░░░░  ░░░░ ░░░░░   ░░░░░░░░░   ░░░░░░  ░░░░ ░░░░░    ░░░░░   ░░░░░░  ░░░░░     
             "
             echo "Msh Center is the Msh updater. It works with git to download updates."
             echo "Command: msh-refresh"
@@ -272,7 +282,7 @@ while true; do
         show)
             echo "Download And Show The Available Plugin.."
             echo ""
-            wget "https://github.com/MEHRAD111/MshRepo/raw/refs/heads/main/available.plugin"
+            wget "https://github.com/MEHRAD111/MshRepo/raw/refs/heads/main/available.plugin" 2>/dev/null
             cat available.plugin
             sudo rm available.plugin
             ;;
@@ -298,7 +308,7 @@ while true; do
              fi
             ;;
         list)
-            ls *.sh
+            ls *.sh 
             ;;
         run)
             if [[ -f "$arg2.sh" ]]; then
@@ -318,18 +328,49 @@ while true; do
            else
           echo "Plugin $arg2 Not Found"
           fi
-          ;;    
+          ;;
+        repair)
+         if [[ -f "$arg2.sh" ]]; then
+         rm -rf "$arg2.sh"
+         wget https://raw.githubusercontent.com/MEHRAD111/MshRepo/refs/heads/main/"$arg2.sh" 2>/dev/null
+         echo "Repaired $arg2 : MPKG"
+         else
+         echo "Plugin Not Found: $arg2" 
+         fi
+          ;;
+        remove)
+        if [[ -f "$arg2.sh" ]]; then
+        echo "Do you wnat to remove $arg2 ?"
+        read -rp "Remove?[y/n]" rmp
+        if [ "$rmp" == "y" ]; then
+        sudo rm -rf "$arg2.sh"
+        elif [ "$rmp" == "" ]; then
+        echo "Please enter your choice"
+        fi
+        else
+        echo "Please enter the plugin name"
+        fi      
+          ;;
             *)
             echo '
-              ███╗   ███╗██████╗ ██╗  ██╗ ██████╗
-              ████╗ ████║██╔══██╗██║ ██╔╝██╔════╝
-              ██╔████╔██║██████╔╝█████╔╝ ██║  ███╗
-              ██║╚██╔╝██║██╔═══╝ ██╔═██╗ ██║   ██║
-              ██║ ╚═╝ ██║██║     ██║  ██╗╚██████╔╝
-              ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ V7
+
+
+ ██████   ██████           █████              
+░░██████ ██████           ░░███               
+ ░███░█████░███  ████████  ░███ █████  ███████
+ ░███░░███ ░███ ░░███░░███ ░███░░███  ███░░███
+ ░███ ░░░  ░███  ░███ ░███ ░██████░  ░███ ░███
+ ░███      ░███  ░███ ░███ ░███░░███ ░███ ░███
+ █████     █████ ░███████  ████ █████░░███████
+░░░░░     ░░░░░  ░███░░░  ░░░░ ░░░░░  ░░░░░███
+                 ░███                 ███ ░███
+                 █████               ░░██████ 
+                ░░░░░                 ░░░░░░  
+
+        
             '
             echo "MPKG (Msh Plugin/Package Manager)"
-            echo "Usage: get, show, list, enable, disable, run, info"
+            echo "Usage: get, show, list, enable, disable, run, info, repair, remove"
             esac
             
             ;;
@@ -351,7 +392,7 @@ while true; do
              if [ "$BCT" == "y" ]; then
              echo "Start Backup From All Tools"
              mkdir -p ~/Backuped
-             cp -r ~/.bashrc ~/.bash_profile ~/.profile ~/.zshrc \
+             cp -r ~/.bashrc ~/.bash_profile ~/.profile ~/.zshrc \ 
              ~/.gitconfig ~/.git-credentials \
              ~/.ssh \
              ~/.gnupg \
@@ -377,9 +418,6 @@ while true; do
              else
              echo "Backup Stopped"
              fi
-            ;;
-            lynxctl)
-             git clone https://github.com/MEHRAD111/LynxCTL.git
             ;;
             sysmanager)
              echo "Welcome to System Manager"
@@ -423,16 +461,23 @@ while true; do
              ;;
              *)
              echo "
- oooooooo8                      oooo     oooo                                                                     
-888       oooo   oooo oooooooo8  8888o   888   ooooooo   oo oooooo    ooooooo     oooooooo8 ooooooooo8 oo oooooo  
- 888oooooo 888   888 888ooooooo  88 888o8 88   ooooo888   888   888   ooooo888  888    88o 888oooooo8   888    888
-        888 888 888          888 88  888  88 888    888   888   888 888    888   888oo888o 888          888       
-o88oooo888    8888   88oooooo88 o88o  8  o88o 88ooo88 8o o888o o888o 88ooo88 8o 888     888  88oooo888 o888o      
-           o8o888                                                                888ooo888                        
+   █████████                      ████   ████                
+ ███░░░░░███                    ░██████ ██████                    
+░███    ░░░  █████ ████  █████  ░███░█████░███   ███████ ████████ 
+░░█████████ ░░███ ░███  ███░░   ░███░░███ ░███  ███░░███░░███░░███
+ ░░░░░░░░███ ░███ ░███ ░░█████  ░███ ░░░  ░███ ░███ ░███ ░███ ░░░ 
+ ███    ░███ ░███ ░███  ░░░░███ ░███      ░███ ░███ ░███ ░███     
+░░█████████  ░░███████  ██████  █████     █████░░███████ █████    
+ ░░░░░░░░░    ░░░░░███ ░░░░░░  ░░░░░     ░░░░░  ░░░░░███░░░░░     
+              ███ ░███                          ███ ░███          
+             ░░██████                          ░░██████           
+              ░░░░░░                            ░░░░░░            
              "
              echo "SysManager"
              esac
 
+            ;;
+             
             ;;
         *)
             echo "Command not found: $command"
